@@ -11,7 +11,7 @@
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
   
-    /*header info from bootleaf html*/
+<!--     /*header info from bootleaf html*/ -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
     <meta name="mobile-web-app-capable" content="yes">
@@ -34,9 +34,9 @@
     <link rel="stylesheet" href="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.css">
     <link rel="stylesheet" href="leaflet-groupedlayercontrol/leaflet.groupedlayercontrol.css"> -->
    
-
  <link rel="stylesheet" href="css/app.css">
     <style type="text/css">
+
 #basic{
   width: 100%;
   text-align: center;
@@ -46,7 +46,7 @@
   left: 50%;
   border-radius: 5px;
   transform: translate(-50%);
- padding: 15px;
+  padding: 15px;
   font-family: sans-serif;
   font-size: 200%;
      }
@@ -55,20 +55,19 @@ h1{
   position: absolute;
   left: 50%;
   font-size: 400%;
-  text-align: center;
+/*  text-align: center;*/
   font-weight: bold;
 }
 
 p{
   width: 95%;
-  text-align: center;
+/*  text-align: center;*/
   background-color: navy;
-  color: white;
-  opacity: .4;
-  position: absolute;
-  left: 50%;
+  color: black;
+/*  position: absolute;*/
+/*  left: 50%;*/
   border-radius: 5px;
-  transform: translate(-50%);
+/*  transform: translate(-50%);*/
   padding: 15px;
   font-family: sans-serif;
   font-size: 130%;
@@ -96,13 +95,14 @@ p{
           </form>
           <ul class="nav navbar-nav">
             <li><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" id="about-btn"><i class="fa fa-question-circle white"></i>&nbsp;&nbsp;About</a></li>
-            <li class="dropdown">
+            <li><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" id="map-btn"><i class="fa fa-globe white"></i>&nbsp;&nbsp;Map Directory</a></li>
+            <!-- <li class="dropdown">
               <a id="toolsDrop" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-globe white"></i>&nbsp;&nbsp;Tools <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" id="full-extent-btn"><i class="fa fa-arrows-alt"></i>&nbsp;&nbsp;Zoom To Full Extent</a></li>
                 <li><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" id="legend-btn"><i class="fa fa-picture-o"></i>&nbsp;&nbsp;Show Legend</a></li>
                 <li class="divider hidden-xs"></li>
-                <li><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" id="login-btn"><i class="fa fa-user"></i>&nbsp;&nbsp;Login</a></li>
+                <li><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" id="login-btn"><i class="fa fa-user"></i>&nbsp;&nbsp;Login</a></li> -->
               </ul>
             </li>
        <!--      <li class="hidden-xs"><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" id="list-btn"><i class="fa fa-list white"></i>&nbsp;&nbsp;POI List</a></li> -->
