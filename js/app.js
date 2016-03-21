@@ -98,16 +98,17 @@ b      }
 
 /* Basemap Layers */
  var layer = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+  maxZoom:21
   attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
 });
  
-var map = L.map('map', {
-  scrollWheelZoom: true,
-  center: [40.852693,-73.827830],
-  zoom: 18
-});
+// var map = L.map('map', {
+//   scrollWheelZoom: true,
+//   center: [40.852693,-73.827830],
+//   zoom: 18
+// });
 
-map.addLayer(layer);
+// map.addLayer(layer);
 // var mapquestOSM = L.tileLayer("https://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png", {
 //   maxZoom: 19,
 //   subdomains: ["otile1-s", "otile2-s", "otile3-s", "otile4-s"],
