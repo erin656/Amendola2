@@ -14,62 +14,94 @@
    <style type="text/css">
    <script src="maps.js"></script>
   <link href= "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css">
+    <link rel="stylesheet" href="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css">
+    <link rel="stylesheet" href="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.Default.css">
+    <link rel="stylesheet" href="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.43.0/L.Control.Locate.css">
+    <link rel="stylesheet" href="assets/leaflet-groupedlayercontrol/leaflet.groupedlayercontrol.css">
+    <link rel="stylesheet" href="assets/css/app.css">
 /*<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/yeti/bootstrap.min.css" rel="stylesheet" integrity="sha384-yxFy3Tt84CcGRj9UI7RA25hoUMpUPoFzcdPtK3hBdNgEGnh9FdKgMVM+lbAZTKN2" crossorigin="anonymous">*/
-#basic{
-  width: 100%;
-  text-align: center;
-  background-color: #f6eff7;
-  /*color: black;*/
-  position: absolute;
-  left: 50%;
-  /*border-radius: 5px;*/
-  transform: translate(-50%);
- /* padding: 15px;
-  font-family: sans-serif;
-  font-size: 200%;*/
-     }
-}
+
 h1{
-/*  position: absolute;*/
- /* left: 50%;*/
   font-size: 400%;
-/*  text-align: center;*/
   font-weight: bold;
 }
 
 p{
   width: 95%;
-  /*text-align: center;*/
-  background-color: navy;
-  color: white;
-  opacity: .4;
-/*  position: absolute;*/
- /* left: 50%;*/
+  background-color: #ADD8E6;
+  color: black;
   border-radius: 5px;
-/*  transform: translate(-50%);*/
   padding: 15px;
   font-family: sans-serif;
   font-size: 130%;
-     }
+}
 
-    #map {
-      width: 100%;
-      height: 500px;
-      background-color: gray;
-    }
+#map {
+  width: 100%;
+  height: 500px;
+  background-color: gray;
+}
+
+body{
+  background-color: #FFF8DC;
+}
 
   </style>
 </head>
 
 <body>
-<div id="basic">
+ <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <div class="navbar-icon-container">
+            <a href="#" class="navbar-icon pull-right visible-xs" id="nav-btn"><i class="fa fa-bars fa-lg white"></i></a>
+            <a href="#" class="navbar-icon pull-right visible-xs" id="sidebar-toggle-btn"><i class="fa fa-search fa-lg white"></i></a>
+          </div>
+          <a class="navbar-brand" href="#">BootLeaf</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right" role="search">
+            <div class="form-group has-feedback">
+                <input id="searchbox" type="text" placeholder="Search" class="form-control">
+                <span id="searchicon" class="fa fa-search form-control-feedback"></span>
+            </div>
+          </form>
+          <ul class="nav navbar-nav">
+            <li><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" id="about-btn"><i class="fa fa-question-circle white"></i>&nbsp;&nbsp;About</a></li>
+            <li class="dropdown">
+              <a id="toolsDrop" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-globe white"></i>&nbsp;&nbsp;Tools <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" id="full-extent-btn"><i class="fa fa-arrows-alt"></i>&nbsp;&nbsp;Zoom To Full Extent</a></li>
+                <li><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" id="legend-btn"><i class="fa fa-picture-o"></i>&nbsp;&nbsp;Show Legend</a></li>
+                <li class="divider hidden-xs"></li>
+                <li><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" id="login-btn"><i class="fa fa-user"></i>&nbsp;&nbsp;Login</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" id="downloadDrop" href="#" role="button" data-toggle="dropdown"><i class="fa fa-cloud-download white"></i>&nbsp;&nbsp;Download <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="data/boroughs.geojson" download="boroughs.geojson" target="_blank" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-download"></i>&nbsp;&nbsp;Boroughs</a></li>
+                  <li><a href="data/subways.geojson" download="subways.geojson" target="_blank" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-download"></i>&nbsp;&nbsp;Subway Lines</a></li>
+                  <li><a href="data/DOITT_THEATER_01_13SEPT2010.geojson" download="theaters.geojson" target="_blank" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-download"></i>&nbsp;&nbsp;Theaters</a></li>
+                  <li><a href="data/DOITT_MUSEUM_01_13SEPT2010.geojson" download="museums.geojson" target="_blank" data-toggle="collapse" data-target=".navbar-collapse.in"><i class="fa fa-download"></i>&nbsp;&nbsp;Museums</a></li>
+                </ul>
+            </li>
+            <li class="hidden-xs"><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" id="list-btn"><i class="fa fa-list white"></i>&nbsp;&nbsp;POI List</a></li>
+          </ul>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
+<!-- <div id="basic"> -->
 <div align = "center">
+<!-- <div id="box"> -->
 <h1> Pelham Bay Business District Directory </h1>
 <p> This is a guide to restaurants, shops, and services along Westchester Avenue in the northeastern Bronx neighborhood of Pelham Bay. This growing commercial district combines the transportation access of Amendola Plaza, the natural beauty and amenities of Pelham Bay Park, and a small-neighborhood feel.
 </p>
 </div>
-
- <div id="map"></div>
+<div id="map"></div>
 
   <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
   <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
@@ -108,17 +140,15 @@ $.getJSON('maps.geojson', function(myData) {
   // var layer = L.geoJson(feature).addTo(map);
   // console.log(feature.Services);
   //     layer.bindPopup(feature.services).openPopup();
-  function onEachFeature (feature, layer) {
+function onEachFeature (feature, layer) {
     popupOptions = {maxWidth: 200};
     layer.bindPopup(feature.properties.Name);
-  }
-                   
-             
-  L.geoJson(myData, {
-    onEachFeature: onEachFeature
+}
+                            
+L.geoJson(myData, {
+  onEachFeature: onEachFeature
   }).addTo(map);
 });
-
 
 // function onEachFeature(feature, layer) {
 //     // does this feature have a property named popupContent?
